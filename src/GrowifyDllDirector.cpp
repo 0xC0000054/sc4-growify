@@ -11,6 +11,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #include "version.h"
+#include "DebugUtil.h"
 #include "Growify.h"
 #include "GrowifyOccupantFilter.h"
 #include "Logger.h"
@@ -65,43 +66,6 @@ using SC4ZoneType = Growify::SC4ZoneType;
 
 namespace
 {
-	static cIGZString* GetOccupantName(cISC4Occupant* pOccupant)
-	{
-		cIGZString* name = nullptr;
-
-		cISCPropertyHolder* propertyHolder = pOccupant->AsPropertyHolder();
-
-		constexpr uint32_t kUserVisibleName = 0x8A416A99;
-
-		cISCProperty* userVisibleName = propertyHolder->GetProperty(kUserVisibleName);
-
-		if (userVisibleName)
-		{
-			const cIGZVariant* propertyValue = userVisibleName->GetPropertyValue();
-
-			if (propertyValue->GetType() == cIGZVariant::Type::Uint32Array
-				&& propertyValue->GetCount() == 3)
-			{
-				const uint32_t* pTGI = propertyValue->RefUint32();
-
-				uint32_t group = pTGI[1];
-				uint32_t instance = pTGI[2];
-
-				StringResourceKey key(group, instance);
-
-				StringResourceManager::GetLocalizedString(key, &name);
-			}
-		}
-
-		return name;
-	}
-
-	void PrintLineToDebugOutput(const char* const line)
-	{
-		OutputDebugStringA(line);
-		OutputDebugStringA("\n");
-	}
-
 	struct GrowifyIteratorContext
 	{
 		cISC4LotManager* pLotManager;

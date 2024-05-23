@@ -102,6 +102,9 @@
     <ClCompile Include="GrowifyOccupantFilter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DebugUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logger.h">
@@ -160,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="..\vendor\gzcom-dll\include\cISC4SimGrid.h">
       <Filter>Header Files\GZCOM</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugUtil.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

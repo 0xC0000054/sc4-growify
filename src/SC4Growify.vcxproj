@@ -30,6 +30,7 @@
     <ClCompile Include="..\vendor\gzcom-dll\src\EASTLAllocatorSC4.cpp" />
     <ClCompile Include="..\vendor\gzcom-dll\src\SC4UI.cpp" />
     <ClCompile Include="..\vendor\gzcom-dll\src\StringResourceManager.cpp" />
+    <ClCompile Include="DebugUtil.cpp" />
     <ClCompile Include="Growify.cpp" />
     <ClCompile Include="GrowifyDllDirector.cpp" />
     <ClCompile Include="GrowifyOccupantFilter.cpp" />
@@ -51,6 +52,7 @@
     <ClInclude Include="..\vendor\gzcom-dll\include\cISC4ZoneManager.h" />
     <ClInclude Include="..\vendor\gzcom-dll\include\StringResourceKey.h" />
     <ClInclude Include="..\vendor\gzcom-dll\include\StringResourceManager.h" />
+    <ClInclude Include="DebugUtil.h" />
     <ClInclude Include="Growify.h" />
     <ClInclude Include="GrowifyOccupantFilter.h" />
     <ClInclude Include="Logger.h" />
