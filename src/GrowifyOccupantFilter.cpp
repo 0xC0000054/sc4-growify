@@ -11,6 +11,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #include "GrowifyOccupantFilter.h"
+#include "DebugUtil.h"
 #include "cIGZVariant.h"
 #include "cISC4Occupant.h"
 #include "cISCProperty.h"
@@ -56,6 +57,16 @@ namespace
 					{
 						purposeType = static_cast<SC4BuildingPurposeType>(data->GetValUint8());
 						result = true;
+					}
+					else if (type == cIGZVariant::Type::Uint8Array)
+					{
+						uint32_t count = data->GetCount();
+
+						if (count == 1)
+						{
+							purposeType = static_cast<SC4BuildingPurposeType>(*data->RefUint8());
+							result = true;
+						}
 					}
 				}
 			}
